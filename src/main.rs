@@ -4,7 +4,7 @@ use std::io;
 
 fn main() {
     println!("Hello there! You have 3 tries to guess the number other wise we will delete one random file on your computer.");
-    thread::sleep(time::Duration::from_secs(5));
+    thread::sleep(time::Duration::from_secs(2));
     println!("Now whats your first guess.");
 
     let mut rng = rand::thread_rng();
@@ -12,7 +12,7 @@ fn main() {
     let mut guess = String::new();
     io::stdin().read_line(&mut guess).expect("No input found!"); // get the user input
 
-    let mut hold = 100; //hold data that was converted to u8
+    let mut hold; //hold data that was converted to u8
     let cguess = guess.trim();
     match cguess.parse::<u8>(){
         Ok(i) => {
@@ -73,7 +73,7 @@ fn main() {
 
     let mut guess3 = String::new();
     io::stdin().read_line(&mut guess3).expect("No input found!"); // get the user input
-    let cguess3 = guess.trim();
+    let cguess3 = &guess3.trim();
     match cguess3.parse::<u8>(){
         Ok(ii) => {
             println!("Your guess was: {}", ii);
